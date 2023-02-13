@@ -12,7 +12,7 @@ class FetchWeatherAPI {
     var response = await http.get(Uri.parse(apiURL(lat, lon)));
     var jsonString = jsonDecode(response.body);
     print('FetchWeatherAPI, jsonString: $jsonString');
-    // weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString));
+    weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString));
     return weatherData!;
   }
 }
