@@ -16,27 +16,30 @@ class _HomeScreenState extends State<HomeScreen> {
       Get.put(GlobalController(), permanent: true);
   @override
   Widget build(BuildContext context) {
-    print('HOME SCREEN, checkLoading: ${globalController.checkLoading().isTrue}');
+    // print('HOME SCREEN, checkLoading: ${globalController.checkLoading().isTrue}');
     return Scaffold(
       body: SafeArea(
         child: Obx(() => globalController.checkLoading().isTrue
             ? const Center(
                 child: CircularProgressIndicator(),
               )
-            : ListView(
-                scrollDirection: Axis.vertical, 
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-
-                  const HeaderWidget(),
-
-                  CurrentWeatherWidget(
-                    weatherDataCurrent: 
-                      globalController.getData().getCurrentWeather()
+            : Center(
+                child: ListView(
+                  scrollDirection: Axis.vertical, 
+                  children: [
+                    const SizedBox(
+                      height: 20,
                     ),
-              ])),
+
+                    const HeaderWidget(),
+
+                    CurrentWeatherWidget(
+                      weatherDataCurrent: 
+                        globalController.getData().getCurrentWeather()
+                      ),
+                ])
+              )
+            ),
       ),
     );
   }

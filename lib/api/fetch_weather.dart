@@ -11,9 +11,9 @@ class FetchWeatherAPI {
   Future<WeatherData> processData(lat, lon) async {
     var response = await http.get(Uri.parse(apiURL(lat, lon)));
     var jsonString = jsonDecode(response.body);
-    print('FetchWeatherAPI, jsonString: $jsonString');
+    // print('FetchWeatherAPI, jsonString: $jsonString');
     weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString));
-    print('FetchWeatherAPI, weatherData: $weatherData');
+    // print('FetchWeatherAPI, weatherData: $weatherData');
     return weatherData!;
   }
 }
