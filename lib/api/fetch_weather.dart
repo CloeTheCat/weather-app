@@ -13,6 +13,7 @@ class FetchWeatherAPI {
     var jsonString = jsonDecode(response.body);
     print('FetchWeatherAPI, jsonString: $jsonString');
     weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString));
+    print('FetchWeatherAPI, weatherData: $weatherData');
     return weatherData!;
   }
 }

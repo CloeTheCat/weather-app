@@ -51,6 +51,13 @@ class GlobalController extends GetxController {
       _longitude.value = value.longitude;
       _isLoading.value = false;
       print('Geolocator.getCurrentPosition: ${_longitude.value}');
+
+      return FetchWeatherAPI()
+			  .processData(value.latitude, value.longitude)
+				.then((value) {   print('FetchWeatherAPI: $value');
+					//weatherData.value = value;
+					//_isLoading.value = false;
+				});
     });
   }
 }
