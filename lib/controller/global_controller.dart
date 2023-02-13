@@ -14,6 +14,13 @@ class GlobalController extends GetxController {
   RxDouble getLatitude() => _latitude;
   RxDouble getLongitude() => _longitude;
 
+  final weatherData = WeatherData().obs;
+
+	WeatherData getData() {
+		// print('khu   prova hvuhvuv');
+		return weatherData.value;
+	}
+
   @override
   void onInit() {
     if (_isLoading.isTrue) {
@@ -49,14 +56,14 @@ class GlobalController extends GetxController {
         .then((value) {
       _latitude.value = value.latitude;
       _longitude.value = value.longitude;
-      _isLoading.value = false;
+      // _isLoading.value = false;
       print('Geolocator.getCurrentPosition: ${_longitude.value}');
 
       return FetchWeatherAPI()
 			  .processData(value.latitude, value.longitude)
-				.then((value) {   print('FetchWeatherAPI: $value');
-					//weatherData.value = value;
-					//_isLoading.value = false;
+				.then((value) { //print('FetchWeatherAPI: $value');
+					weatherData.value = value;
+					_isLoading.value = false;
 				});
     });
   }
