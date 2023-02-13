@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Get.put(GlobalController(), permanent: true);
   @override
   Widget build(BuildContext context) {
-    print('rherhrgrae ${globalController.checkLoading().isTrue}');
+    print('HOME SCREEN, checkLoading: ${globalController.checkLoading().isTrue}');
     return Scaffold(
       body: SafeArea(
         child: Obx(() => globalController.checkLoading().isTrue

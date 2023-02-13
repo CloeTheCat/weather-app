@@ -23,7 +23,7 @@ class GlobalController extends GetxController {
   }
 
   getLocation() async {
-    print('uyyuqegchiwuhiqhfihweifhiwehfiwehfiuwh');
+    print('getLocation function start');
     bool isServiceEnabled;
     LocationPermission locationPermission;
 
@@ -50,7 +50,7 @@ class GlobalController extends GetxController {
       _latitude.value = value.latitude;
       _longitude.value = value.longitude;
       _isLoading.value = false;
-      print(_longitude.value);
+      print('Geolocator.getCurrentPosition: ${_longitude.value}');
     });
   }
 }

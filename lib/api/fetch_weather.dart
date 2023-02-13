@@ -8,12 +8,13 @@ import 'package:weather_app/model/weather_data_current.dart';
 class FetchWeatherAPI {
   WeatherData? weatherData;
 
-  // Future<WeatherData> processData(lat, lon) async {
-  //   var response = await http.get(Uri.parse(apiURL(lat, lon)));
-  //   var jsonString = jsonDecode(response.body);
-  //   weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString));
-  //   return weatherData!;
-  // }
+  Future<WeatherData> processData(lat, lon) async {
+    var response = await http.get(Uri.parse(apiURL(lat, lon)));
+    var jsonString = jsonDecode(response.body);
+    print('FetchWeatherAPI, jsonString: $jsonString');
+    // weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString));
+    return weatherData!;
+  }
 }
 
 String apiURL(var lat, var lon) {
