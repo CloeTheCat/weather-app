@@ -65,9 +65,16 @@ class DailyDataForecast extends StatelessWidget {
                       height: 30,
                       width: 30,
                       child: Image.asset("assets/weather/${weatherDataDaily.daily[index].weather![0].icon}.png"),
+                    ),
+                    Text(
+                      "${weatherDataDaily.daily[index].temp!.max}°/${weatherDataDaily.daily[index].temp!.min}°"
                     )
                   ],
                 )
+              ),
+              Container(
+                height: 1,
+                color: CustomColors.dividerLine,
               )
             ],
           );
